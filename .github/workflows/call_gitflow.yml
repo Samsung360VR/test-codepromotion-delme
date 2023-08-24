@@ -37,6 +37,7 @@ jobs:
           version=$(jq -r '.version' package.json)
           git add package.json
           git commit -m "$BUMP_VERSION_MESSAGE $version"
+          git config  --list
           git push origin main
       - name: Release Start
         if: inputs.gitflow_type  == 'release_start'
